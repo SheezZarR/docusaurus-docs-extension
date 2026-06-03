@@ -10,6 +10,8 @@ https://github.com/oyslin/replace-in-file-webpack-plugin
 */
 // import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
 
+export { validateOptions } from '@docusaurus/plugin-content-docs';
+
 export default async function extendedDocsPlugin(
   context: LoadContext,
   options: DocsOptions,

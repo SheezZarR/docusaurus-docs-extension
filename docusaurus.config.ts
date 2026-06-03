@@ -45,7 +45,7 @@ const config: Config = {
       // '@docusaurus/plugin-content-docs',
       // './src/plugins/extended-docs/index.ts',
       {
-        id: 'docs1',
+        id: 'docs',
         sidebarPath: './sidebars.ts',
         path: 'docs',
         routeBasePath: 'docs',
@@ -98,6 +98,7 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Tutorial',
+          docsPluginId: 'docs',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
