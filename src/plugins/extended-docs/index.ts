@@ -8,7 +8,7 @@ import originalPluginPkg, {
 No declaration file available. See consult the documentation:
 https://github.com/oyslin/replace-in-file-webpack-plugin
 */
-// import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
+import ReplaceInFileWebpackPlugin from 'replace-in-file-webpack-plugin';
 
 export { validateOptions } from '@docusaurus/plugin-content-docs';
 
@@ -23,20 +23,30 @@ export default async function extendedDocsPlugin(
     // 2. Inherit all parent methods
     ...pluginInstance,
 
-    // // 4. Extend the webpack configuration safely
-    // configureWebpack(config, isServer, utils, content) {
-    //   const parentWebpack = pluginInstance.configureWebpack
-    //     ? pluginInstance.configureWebpack(config, isServer, utils, content)
-    //     : {};
-
-    //   if (!parentWebpack)
-    //     // or something else entirely??? ueo
-    //     return parentWebpack;
-
-    //   return {
-    //     ...parentWebpack,
-       
-    //   };
-    // },
+     configureWebpack(config, isServer, utils, content) {
+      const parentWebpack = pluginInstance.configureWebpack(config, isServer, utils, content)
+      
+      console.log('EXPLORING PARENT WEBPACK', JSON.stringify(parentWebpack))
+      const outputConfig = {
+        ...parentWebpack,
+        plugins: [
+          new ReplaceInFileWebpackPlugin([
+            {
+              dir: '/home/sheezzarr/Dev/Docusaurus-Test/src/theme',
+              test: /\*.tsx/,
+              rules: [
+                {
+                  search: '|REPLACE_ME|',
+                  replace: 'REPLACED'
+                }
+              ]
+            },
+          ])
+        ]
+      }
+      console.log('EXPLORING PARENT WEBPACK', JSON.stringify(outputConfig))
+      // return parentWebpack
+      return outputConfig
+    }
   };
 }
