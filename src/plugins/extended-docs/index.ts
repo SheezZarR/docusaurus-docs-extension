@@ -23,9 +23,6 @@ export default async function extendedDocsPlugin(
     // 2. Inherit all parent methods
     ...pluginInstance,
 
-    // 3. Provide a unique plugin namebb
-    name: 'my-plug',
-    
     // // 4. Extend the webpack configuration safely
     // configureWebpack(config, isServer, utils, content) {
     //   const parentWebpack = pluginInstance.configureWebpack
