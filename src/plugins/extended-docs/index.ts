@@ -32,7 +32,7 @@ export default async function extendedDocsPlugin(
         plugins: [
           new ReplaceInFileWebpackPlugin([
             {
-              dir: '/home/sheezzarr/Dev/Docusaurus-Test/src/theme',
+              dir: __dirname,
               test: /\*.tsx/,
               rules: [
                 {
