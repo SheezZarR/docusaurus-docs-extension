@@ -23,7 +23,7 @@ export default async function extendedDocsPlugin(
     // 2. Inherit all parent methods
     ...pluginInstance,
 
-     configureWebpack(config, isServer, utils, content) {
+    configureWebpack(config, isServer, utils, content) {
       const parentWebpack = pluginInstance.configureWebpack(config, isServer, utils, content)
       
       console.log('EXPLORING PARENT WEBPACK', JSON.stringify(parentWebpack))

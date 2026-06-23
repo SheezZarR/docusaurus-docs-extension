@@ -26,7 +26,6 @@ A blog post folder can be convenient to co-locate blog post images:
 
 ![Docusaurus Plushie](./docusaurus-plushie-banner.jpeg)
 
-[link to docs](/docs/tutorial-basics/markdown-features#admonitions)
 
 The blog supports tags as well!
 
